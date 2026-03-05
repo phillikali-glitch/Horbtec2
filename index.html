@@ -1,877 +1,1098 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HORBTEC Solutions Ltd | Advanced Telematics & Fleet Management</title>
-    <meta name="description" content="Leading provider of telematics solutions across East & Central Africa including GPS tracking, fleet management, security systems, and fuel monitoring">
-    <meta name="keywords" content="telematics, GPS tracking, fleet management, Uganda, Kenya, Tanzania, Rwanda, Burundi, South Sudan, D.R.Congo, Central African Republic">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --horbtec-blue: #0a2c5e;
-            --horbtec-orange: #f5811f;
-            --horbtec-green: #00A36C;
-            --horbtec-dark: #2C3E50;
-            --horbtec-light: #f8f9fa;
-            --horbtec-accent: #2c6b9e;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Header & Navigation */
-        header {
-            background-color: var(--horbtec-blue);
-            color: white;
-            padding: 0.5rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo {
-            height: 50px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo img {
-            height: 100%;
-            width: auto;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 1.5rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--horbtec-orange);
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background-color: var(--horbtec-orange);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: #e4720c;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HORBTEC Solutions Ltd | Advanced Telematics & Fleet Management — East & Central Africa</title>
+<meta name="description" content="Uganda's leading telematics company. Real-time GPS tracking, fleet management, fuel monitoring & security systems across East and Central Africa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --blue:    #0a2c5e;
+  --navy:    #061a3a;
+  --orange:  #f5811f;
+  --amber:   #ffa940;
+  --green:   #00a36c;
+  --steel:   #1e4d8c;
+  --slate:   #e8eef6;
+  --white:   #ffffff;
+  --ink:     #1a1a2e;
+  --muted:   #5a6478;
+  --border:  rgba(10,44,94,0.10);
+}
 
-        .contact-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
-            justify-content: center;
-        }
-        
-        .contact-btn {
-            padding: 12px 20px;
-            border-radius: 4px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
-            text-align: center;
-            min-width: 140px;
-        }
-        
-        .whatsapp-btn {
-            background-color: #25D366;
-            color: white;
-        }
-        
-        .call-btn {
-            background-color: var(--horbtec-green);
-            color: white;
-        }
-        
-        .admin-btn {
-            background-color: var(--horbtec-accent);
-            color: white;
-        }
-        
-        .email-btn {
-            background-color: var(--horbtec-blue);
-            color: white;
-        }
-        
-        .careers-btn {
-            background-color: var(--horbtec-dark);
-            color: white;
-        }
-        
-        .contact-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(10, 44, 94, 0.8), rgba(10, 44, 94, 0.9)), url('https://images.unsplash.com/photo-1569529465842-aa6e5783b412?ixlib=rb-4.0.1&auto=format&fit=crop&w=1500&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 5rem 0;
-            text-align: center;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 5rem 0;
-            background-color: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--horbtec-blue);
-            margin-bottom: 1rem;
-        }
-        
-        .section-title p {
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .product-item {
-            background: var(--horbtec-light);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            text-align: center;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .product-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .product-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .product-item h3 {
-            color: var(--horbtec-blue);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-        
-        .product-item p {
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-        
-        /* How It Works */
-        .how-it-works {
-            background-color: var(--horbtec-light);
-            padding: 5rem 0;
-        }
-        
-        .steps {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .step {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-            padding: 1.5rem;
-            margin: 1rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background: var(--horbtec-blue);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        
-        /* Benefits */
-        .benefits {
-            padding: 5rem 0;
-            background: white;
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .benefit-card {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-        
-        .benefit-icon {
-            font-size: 1.5rem;
-            color: var(--horbtec-orange);
-            margin-right: 1rem;
-            min-width: 30px;
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            padding: 5rem 0;
-            background: var(--horbtec-light);
-        }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .testimonial {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            position: relative;
-        }
-        
-        .testimonial p {
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-        
-        .testimonial .client {
-            font-weight: bold;
-            color: var(--horbtec-blue);
-        }
-        
-        .testimonial::before {
-            content: """;
-            font-size: 5rem;
-            color: var(--horbtec-orange);
-            position: absolute;
-            top: -20px;
-            left: 10px;
-            opacity: 0.2;
-            font-family: Georgia, serif;
-        }
-        
-        /* Coverage Section */
-        .coverage {
-            padding: 5rem 0;
-            background: white;
-        }
-        
-        .countries {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 2rem;
-        }
-        
-        .country {
-            background: var(--horbtec-light);
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-weight: 500;
-            color: var(--horbtec-blue);
-            border: 1px solid #ddd;
-        }
-        
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(to right, var(--horbtec-blue), var(--horbtec-accent));
-            color: white;
-            text-align: center;
-            padding: 5rem 0;
-        }
-        
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta p {
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--horbtec-dark);
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--horbtec-orange);
-        }
-        
-        .footer-section p, .footer-section a {
-            opacity: 0.8;
-            color: white;
-            margin-bottom: 0.5rem;
-            display: block;
-            text-decoration: none;
-        }
-        
-        .footer-section a:hover {
-            opacity: 1;
-            color: var(--horbtec-orange);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            transition: all 0.3s;
-        }
-        
-        .social-links a:hover {
-            background: var(--horbtec-orange);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.7;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .steps {
-                flex-direction: column;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .contact-buttons {
-                flex-direction: column;
-            }
-            
-            .contact-btn {
-                width: 100%;
-            }
-        }
-    </style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  background: #f7f9fc;
+  overflow-x: hidden;
+}
+
+/* ── UTILITY ── */
+.container { width: 92%; max-width: 1200px; margin: 0 auto; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 30px; background: var(--orange); color: #fff;
+  border: none; border-radius: 3px; font-family: 'DM Sans', sans-serif;
+  font-weight: 700; font-size: 0.95rem; letter-spacing: 0.04em;
+  text-decoration: none; cursor: pointer; transition: all .25s;
+}
+.btn-primary:hover { background: #e06d0a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,129,31,.35); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px; background: transparent; color: #fff;
+  border: 2px solid rgba(255,255,255,.5); border-radius: 3px;
+  font-family: 'DM Sans', sans-serif; font-weight: 600;
+  text-decoration: none; transition: all .25s;
+}
+.btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+
+.tag {
+  display: inline-block; padding: 5px 14px;
+  background: rgba(245,129,31,.12); color: var(--orange);
+  border-radius: 2px; font-family: 'Space Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 14px;
+}
+.tag-blue {
+  background: rgba(10,44,94,.08); color: var(--blue);
+}
+
+/* ── HEADER ── */
+header {
+  position: fixed; top: 0; width: 100%; z-index: 999;
+  padding: 0;
+  transition: background .3s, box-shadow .3s;
+}
+header.scrolled {
+  background: var(--navy);
+  box-shadow: 0 2px 20px rgba(0,0,0,.25);
+}
+nav {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.logo-wrap { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo-icon {
+  width: 42px; height: 42px; background: var(--orange);
+  border-radius: 4px; display: flex; align-items: center; justify-content: center;
+}
+.logo-icon svg { width: 24px; height: 24px; fill: white; }
+.logo-text { line-height: 1; }
+.logo-text strong {
+  display: block; color: #fff; font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; letter-spacing: 0.08em;
+}
+.logo-text span { color: rgba(255,255,255,.55); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.nav-links { display: flex; list-style: none; align-items: center; gap: 2px; }
+.nav-links a {
+  color: rgba(255,255,255,.8); text-decoration: none;
+  padding: 8px 14px; border-radius: 3px; font-size: 0.88rem;
+  font-weight: 500; transition: all .2s;
+}
+.nav-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
+.nav-cta {
+  padding: 10px 20px !important; background: var(--orange) !important;
+  color: #fff !important; font-weight: 700 !important;
+  border-radius: 3px !important;
+}
+.nav-cta:hover { background: #e06d0a !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: white; transition: .3s; }
+
+/* ── HERO ── */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-bg img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  filter: brightness(.45) saturate(1.1);
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(6,26,58,.75) 0%, rgba(10,44,94,.55) 50%, rgba(245,129,31,.18) 100%);
+}
+.hero-overlay-pattern {
+  position: absolute; inset: 0; z-index: 1;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,.03) 59px, rgba(255,255,255,.03) 60px),
+    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,.03) 59px, rgba(255,255,255,.03) 60px);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 140px 0 80px;
+  max-width: 780px;
+}
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 24px;
+}
+.hero-eyebrow span {
+  font-family: 'Space Mono', monospace; font-size: 0.72rem;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--amber);
+}
+.hero-eyebrow::before {
+  content: ''; display: block; width: 36px; height: 2px; background: var(--orange);
+}
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.2rem, 7vw, 6.5rem);
+  line-height: 0.95;
+  color: #fff;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+}
+.hero h1 em { color: var(--orange); font-style: normal; }
+.hero-sub {
+  font-size: 1.15rem; color: rgba(255,255,255,.8);
+  max-width: 580px; line-height: 1.7; margin-bottom: 40px;
+  font-weight: 400;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 60px; }
+.hero-stats {
+  display: flex; gap: 40px; padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+.hero-stat strong {
+  display: block; font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem; color: var(--orange); line-height: 1;
+}
+.hero-stat span {
+  font-size: 0.8rem; color: rgba(255,255,255,.6);
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+.hero-scroll {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.hero-scroll span { color: rgba(255,255,255,.4); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; }
+.scroll-line {
+  width: 1px; height: 48px; background: linear-gradient(to bottom, var(--orange), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse { 0%,100%{opacity:.3;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(1.2)} }
+
+/* ── TRUST BAR ── */
+.trust-bar {
+  background: var(--navy); padding: 22px 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.trust-inner {
+  display: flex; align-items: center; justify-content: center;
+  gap: 40px; flex-wrap: wrap;
+}
+.trust-item {
+  display: flex; align-items: center; gap: 10px;
+  color: rgba(255,255,255,.6); font-size: 0.82rem;
+  letter-spacing: 0.05em;
+}
+.trust-item i { color: var(--orange); font-size: 1rem; }
+.trust-divider { width: 1px; height: 20px; background: rgba(255,255,255,.12); }
+
+/* ── SECTION HEADERS ── */
+.section-head { margin-bottom: 56px; }
+.section-head.centered { text-align: center; }
+.section-head.centered p { margin: 0 auto; }
+.section-head h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  color: var(--blue); line-height: 1.05;
+  letter-spacing: 0.03em; margin-bottom: 14px;
+}
+.section-head h2 em { color: var(--orange); font-style: normal; }
+.section-head p {
+  color: var(--muted); font-size: 1.05rem; line-height: 1.7;
+  max-width: 620px; font-weight: 400;
+}
+
+/* ── ABOUT SPLIT ── */
+.about { padding: 100px 0; background: #fff; }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.about-visual { position: relative; }
+.about-img-main {
+  width: 100%; height: 520px; object-fit: cover; border-radius: 6px;
+  display: block;
+}
+.about-img-accent {
+  position: absolute; bottom: -32px; right: -32px;
+  width: 220px; height: 200px; object-fit: cover;
+  border-radius: 4px; border: 6px solid #fff;
+  box-shadow: 0 12px 40px rgba(0,0,0,.18);
+}
+.about-badge {
+  position: absolute; top: 28px; left: -24px;
+  background: var(--orange); color: #fff;
+  padding: 16px 20px; border-radius: 4px;
+  text-align: center; box-shadow: 0 8px 24px rgba(245,129,31,.4);
+}
+.about-badge strong { display: block; font-family: 'Bebas Neue'; font-size: 2rem; line-height: 1; }
+.about-badge span { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.about-text h3 {
+  font-family: 'Bebas Neue'; font-size: 1.8rem; color: var(--blue);
+  letter-spacing: 0.04em; margin: 20px 0 14px;
+}
+.about-text p { color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
+.about-pillars { display: flex; flex-direction: column; gap: 14px; margin: 28px 0; }
+.pillar {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px; background: var(--slate); border-radius: 4px;
+  border-left: 3px solid var(--orange);
+}
+.pillar i { color: var(--orange); font-size: 1.1rem; padding-top: 2px; }
+.pillar div strong { display: block; color: var(--blue); font-weight: 600; margin-bottom: 2px; }
+.pillar div span { font-size: 0.88rem; color: var(--muted); }
+
+/* ── SERVICES ── */
+.services { padding: 100px 0; background: #f7f9fc; }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.service-card {
+  background: #fff; border-radius: 6px;
+  padding: 32px 28px; border: 1px solid var(--border);
+  transition: all .3s; position: relative; overflow: hidden;
+}
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: linear-gradient(90deg, var(--orange), var(--amber));
+  transform: scaleX(0); transform-origin: left; transition: transform .3s;
+}
+.service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(10,44,94,.12); border-color: transparent; }
+.service-card:hover::before { transform: scaleX(1); }
+.service-icon {
+  width: 52px; height: 52px; background: rgba(245,129,31,.1);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 18px;
+}
+.service-card h3 {
+  font-size: 1.05rem; font-weight: 700; color: var(--blue);
+  margin-bottom: 10px; line-height: 1.3;
+}
+.service-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+.service-card .learn-more {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.82rem; font-weight: 700; color: var(--orange);
+  text-decoration: none; margin-top: 16px; letter-spacing: 0.04em;
+}
+.services-cta { text-align: center; margin-top: 48px; }
+
+/* ── HOW IT WORKS ── */
+.process { padding: 100px 0; background: var(--navy); }
+.process .section-head h2 { color: #fff; }
+.process .section-head p { color: rgba(255,255,255,.6); }
+.process-track {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  position: relative; margin-top: 20px;
+}
+.process-track::before {
+  content: ''; position: absolute; top: 40px; left: 12.5%; right: 12.5%;
+  height: 2px; background: linear-gradient(90deg, var(--orange), rgba(255,255,255,.1));
+  z-index: 0;
+}
+.process-step {
+  text-align: center; padding: 0 20px; position: relative; z-index: 1;
+}
+.step-circle {
+  width: 80px; height: 80px; background: var(--steel);
+  border: 2px solid rgba(245,129,31,.4);
+  border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; margin: 0 auto 24px; position: relative;
+  transition: all .3s;
+}
+.step-circle i { color: var(--orange); font-size: 1.6rem; }
+.step-num {
+  position: absolute; top: -6px; right: -6px;
+  width: 24px; height: 24px; background: var(--orange);
+  border-radius: 50%; font-size: 0.7rem; font-weight: 700;
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  font-family: 'Space Mono';
+}
+.process-step h3 {
+  color: #fff; font-weight: 700; margin-bottom: 10px; font-size: 1.05rem;
+}
+.process-step p { color: rgba(255,255,255,.55); font-size: 0.88rem; line-height: 1.7; }
+
+/* ── IMAGE FEATURE ── */
+.feature-section { padding: 100px 0; background: #fff; }
+.feature-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.feature-grid.reverse { direction: rtl; }
+.feature-grid.reverse > * { direction: ltr; }
+.feature-img {
+  position: relative; border-radius: 6px; overflow: hidden;
+}
+.feature-img img { width: 100%; height: 460px; object-fit: cover; display: block; }
+.feature-img-badge {
+  position: absolute; bottom: 24px; left: 24px;
+  background: rgba(6,26,58,.9); backdrop-filter: blur(8px);
+  color: #fff; padding: 14px 20px; border-radius: 4px;
+  border-left: 3px solid var(--orange);
+}
+.feature-img-badge strong { display: block; font-size: 1.5rem; font-family: 'Bebas Neue'; color: var(--orange); }
+.feature-img-badge span { font-size: 0.75rem; color: rgba(255,255,255,.7); letter-spacing: 0.08em; }
+.feature-text h2 {
+  font-family: 'Bebas Neue'; font-size: clamp(2rem, 3.5vw, 3rem);
+  color: var(--blue); line-height: 1.05; letter-spacing: 0.03em; margin-bottom: 16px;
+}
+.feature-text h2 em { color: var(--orange); font-style: normal; }
+.feature-text p { color: var(--muted); line-height: 1.8; margin-bottom: 24px; }
+.feature-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+.feature-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 0.95rem; color: var(--ink);
+}
+.feature-list li i { color: var(--green); font-size: 0.9rem; padding-top: 3px; }
+
+/* ── COVERAGE ── */
+.coverage { padding: 100px 0; background: var(--slate); }
+.coverage-inner {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center;
+}
+.countries-wrap { }
+.countries-label {
+  font-family: 'Space Mono'; font-size: 0.75rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 20px;
+}
+.countries-grid {
+  display: flex; flex-wrap: wrap; gap: 10px;
+}
+.country-pill {
+  display: flex; align-items: center; gap: 8px;
+  background: #fff; border: 1px solid var(--border);
+  padding: 10px 18px; border-radius: 40px;
+  font-weight: 600; font-size: 0.88rem; color: var(--blue);
+  transition: all .2s;
+}
+.country-pill:hover { border-color: var(--orange); color: var(--orange); }
+.country-pill i { font-size: 0.75rem; color: var(--green); }
+.coverage-img { border-radius: 6px; overflow: hidden; position: relative; }
+.coverage-img img { width: 100%; height: 480px; object-fit: cover; display: block; }
+.coverage-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(6,26,58,.8) 0%, transparent 55%);
+  display: flex; align-items: flex-end; padding: 32px;
+}
+.coverage-overlay p {
+  color: #fff; font-size: 1.1rem; font-weight: 600; line-height: 1.5;
+  max-width: 360px;
+}
+.coverage-overlay p em { color: var(--amber); font-style: normal; }
+
+/* ── TESTIMONIALS ── */
+.testimonials { padding: 100px 0; background: #fff; }
+.testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+.testi-card {
+  background: var(--slate); border-radius: 6px; padding: 36px 28px;
+  border: 1px solid var(--border); position: relative;
+  transition: all .3s;
+}
+.testi-card:hover { background: var(--blue); }
+.testi-card:hover .testi-quote,
+.testi-card:hover p,
+.testi-card:hover .testi-name { color: rgba(255,255,255,.9); }
+.testi-card:hover .testi-role { color: rgba(255,255,255,.55); }
+.testi-quote {
+  font-family: 'Bebas Neue'; font-size: 5rem; line-height: 0.6;
+  color: var(--orange); margin-bottom: 20px; display: block;
+  transition: color .3s;
+}
+.testi-card p {
+  color: var(--muted); font-size: 0.95rem; line-height: 1.75;
+  margin-bottom: 24px; transition: color .3s;
+}
+.testi-author { display: flex; align-items: center; gap: 14px; }
+.testi-avatar {
+  width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
+  object-position: top;
+}
+.testi-name { display: block; font-weight: 700; color: var(--blue); font-size: 0.95rem; transition: color .3s; }
+.testi-role { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.05em; transition: color .3s; }
+.testi-stars { color: var(--orange); font-size: 0.75rem; margin-bottom: 16px; }
+
+/* ── CTA BAND ── */
+.cta-band {
+  padding: 100px 0;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, var(--steel) 100%);
+  position: relative; overflow: hidden;
+}
+.cta-band::before {
+  content: '';
+  position: absolute; top: -100px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(245,129,31,.18) 0%, transparent 65%);
+  pointer-events: none;
+}
+.cta-inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+}
+.cta-text h2 {
+  font-family: 'Bebas Neue'; font-size: clamp(2.4rem, 4.5vw, 4rem);
+  color: #fff; line-height: 1.0; letter-spacing: 0.02em; margin-bottom: 16px;
+}
+.cta-text h2 em { color: var(--orange); font-style: normal; }
+.cta-text p { color: rgba(255,255,255,.65); font-size: 1.05rem; line-height: 1.7; }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.contact-tile {
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+  padding: 16px 18px; border-radius: 4px; text-decoration: none;
+  transition: all .25s;
+}
+.contact-tile:hover { background: rgba(255,255,255,.14); border-color: rgba(245,129,31,.5); transform: translateY(-2px); }
+.contact-tile-icon {
+  width: 40px; height: 40px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+.ct-wa { background: rgba(37,211,102,.2); color: #25D366; }
+.ct-call { background: rgba(0,163,108,.2); color: var(--green); }
+.ct-admin { background: rgba(30,77,140,.5); color: #7fb5e8; }
+.ct-email { background: rgba(245,129,31,.2); color: var(--amber); }
+.ct-careers { background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); }
+.contact-tile-text strong { display: block; color: #fff; font-size: 0.88rem; font-weight: 700; }
+.contact-tile-text span { font-size: 0.75rem; color: rgba(255,255,255,.5); }
+.contact-full {
+  grid-column: span 2;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink); padding: 72px 0 32px;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 48px;
+  margin-bottom: 56px;
+}
+.footer-brand p {
+  color: rgba(255,255,255,.45); font-size: 0.88rem; line-height: 1.8;
+  margin: 16px 0 24px;
+}
+.social-row { display: flex; gap: 10px; }
+.soc-btn {
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.12);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.5); font-size: 0.85rem;
+  text-decoration: none; transition: all .25s;
+}
+.soc-btn:hover { background: var(--orange); border-color: var(--orange); color: #fff; }
+.footer-col h4 {
+  font-family: 'Space Mono'; font-size: 0.72rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 20px;
+}
+.footer-col a, .footer-col p {
+  display: block; color: rgba(255,255,255,.55); font-size: 0.88rem;
+  text-decoration: none; margin-bottom: 10px; transition: color .2s; line-height: 1.5;
+}
+.footer-col a:hover { color: var(--orange); }
+.footer-contact-item {
+  display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px;
+}
+.footer-contact-item i { color: var(--orange); font-size: 0.85rem; padding-top: 2px; flex-shrink: 0; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding-top: 28px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-bottom p { color: rgba(255,255,255,.25); font-size: 0.8rem; }
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a { color: rgba(255,255,255,.25); font-size: 0.8rem; text-decoration: none; }
+.footer-legal a:hover { color: var(--orange); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2,1fr); }
+  .testi-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: fixed;
+    top: 72px; left: 0; right: 0; background: var(--navy);
+    padding: 20px; gap: 4px; z-index: 998;
+  }
+  .about-grid, .feature-grid, .coverage-inner, .cta-inner { grid-template-columns: 1fr; }
+  .feature-grid.reverse { direction: ltr; }
+  .about-img-accent, .about-badge { display: none; }
+  .services-grid { grid-template-columns: 1fr; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .process-track { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .process-track::before { display: none; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-full { grid-column: span 1; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
+}
+@media (max-width: 480px) {
+  .process-track { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; }
+}
+
+/* ── ANIMATE IN ── */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+</style>
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo-container">
-                    <div class="logo">
-                        <img src="https://i.ibb.co/jCF6Fqp/images-7.jpg" alt="HORBTEC Solutions Ltd">
-                    </div>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#benefits">Benefits</a></li>
-                    <li><a href="#coverage">Coverage</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact" class="btn">Contact Us</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Advanced Telematics Solutions Across East & Central Africa</h1>
-                <p>Real-time vehicle tracking, comprehensive fleet management, and advanced security systems to optimize your operations, reduce costs, and increase safety</p>
-                <a href="#contact" class="btn">Request a Demo</a>
-                
-                <div class="contact-buttons">
-                    <a href="https://wa.me/256756773494?text=Hello%20HORBTEC,%20I'm%20interested%20in%20your%20telematics%20solutions" class="contact-btn whatsapp-btn">
-                        <i class="fab fa-whatsapp"></i> WhatsApp Now
-                    </a>
-                    <a href="tel:+256394011693" class="contact-btn call-btn">
-                        <i class="fas fa-phone"></i> Call Now
-                    </a>
-                    <a href="tel:+256705486999" class="contact-btn admin-btn">
-                        <i class="fas fa-headset"></i> Call Admin
-                    </a>
-                    <a href="mailto:info@horbtec.com" class="contact-btn email-btn">
-                        <i class="fas fa-envelope"></i> Email Us
-                    </a>
-                    <a href="mailto:hr@horbtec.com" class="contact-btn careers-btn">
-                        <i class="fas fa-briefcase"></i> Careers
-                    </a>
-                </div>
-            </div>
+<!-- HEADER -->
+<header id="site-header">
+  <div class="container">
+    <nav>
+      <a class="logo-wrap" href="#">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Telematics Products</h2>
-                <p>Comprehensive solutions designed to meet your fleet management and security needs</p>
-            </div>
-            
-            <div class="product-grid">
-                <div class="product-item">
-                    <div class="product-icon">🚗</div>
-                    <h3>HORBTEC GPS Car Tracking</h3>
-                    <p>Real-time vehicle location monitoring with historical route playback and geofencing capabilities for enhanced security.</p>
-                </div>
-                
-                <div class="product-item">
-                    <div class="product-icon">🚛</div>
-                    <h3>HORBTEC Fleet Management Solutions</h3>
-                    <p>Comprehensive fleet optimization platform featuring maintenance scheduling, compliance reporting, and operational analytics.</p>
-                </div>
-                
-                <div class="product-item">
-                    <div class="product-icon">⛽</div>
-                    <h3>HORBTEC Fuel Monitoring Systems</h3>
-                    <p>Precision fuel tracking with consumption analytics, theft detection, and efficiency optimization algorithms.</p>
-                </div>
-                
-                <div class="product-item">
-                    <div class="product-icon">👨‍💼</div>
-                    <h3>HORBTEC Field Staff Tracking Systems</h3>
-                    <p>Mobile workforce management with GPS-enabled time tracking, job assignment integration, and productivity metrics.</p>
-                </div>
-                
-                <div class="product-item">
-                    <div class="product-icon">⚡</div>
-                    <h3>HORBTEC Power Monitoring Systems</h3>
-                    <p>Continuous monitoring of vehicle electrical systems and auxiliary power with outage alerts and battery health reporting.</p>
-                </div>
-                
-                <div class="product-item">
-                    <div class="product-icon">🗺️</div>
-                    <h3>HORBTEC Geo Mapping Services</h3>
-                    <p>Advanced digital mapping with traffic pattern analysis, route optimization, and topographic visualization.</p>
-                </div>
-                
-                <div class="product-item">
-                    <div class="product-icon">📹</div>
-                    <h3>HORBTEC CCTV Cameras</h3>
-                    <p>High-definition surveillance systems for premises and vehicles with night vision and remote viewing capabilities.</p>
-                </div>
-                
-                <div class="product-item">
-                    <div class="product-icon">🎥</div>
-                    <h3>HORBTEC Dashcam Systems</h3>
-                    <p>Incident recording with dual-facing cameras, impact detection, and cloud storage integration for evidence preservation.</p>
-                </div>
-                
-                <div class="product-item">
-                    <div class="product-icon">🔊</div>
-                    <h3>HORBTEC Security Alarms</h3>
-                    <p>Comprehensive intrusion detection for vehicles and premises with immediate alert notifications to designated personnel.</p>
-                </div>
-                
-                <div class="product-item">
-                    <div class="product-icon">📊</div>
-                    <h3>HORBTEC Fleet Administration Training</h3>
-                    <p>Certification programs for fleet managers covering telematics utilization, data interpretation, and operational optimization.</p>
-                </div>
-                
-                <div class="product-item">
-                    <div class="product-icon">🛣️</div>
-                    <h3>HORBTEC Route/Journey Planning & Management</h3>
-                    <p>Dynamic routing software that calculates most efficient paths considering traffic, weather, and vehicle specifications.</p>
-                </div>
-                
-                <div class="product-item">
-                    <div class="product-icon">📦</div>
-                    <h3>HORBTEC Cargo Tracking</h3>
-                    <p>Smart monitoring of shipments with temperature, humidity, and shock detection for sensitive cargo protection.</p>
-                </div>
-                
-                <div class="product-item">
-                    <div class="product-icon">🤖</div>
-                    <h3>HORBTEC Driver Behavior Analytics</h3>
-                    <p>AI-powered driving pattern recognition with scoring system and personalized coaching recommendations.</p>
-                </div>
-                
-                <div class="product-item">
-                    <div class="product-icon">📈</div>
-                    <h3>HORBTEC Predictive Maintenance Platform</h3>
-                    <p>Machine learning algorithms that forecast maintenance needs before failures occur, reducing downtime.</p>
-                </div>
-                
-                <div class="product-item">
-                    <div class="product-icon">🌿</div>
-                    <h3>HORBTEC Carbon Emission Tracking</h3>
-                    <p>Sustainability monitoring with environmental impact reports and compliance documentation for regulatory requirements.</p>
-                </div>
-            </div>
+        <div class="logo-text">
+          <strong>HORBTEC</strong>
+          <span>Solutions Ltd</span>
         </div>
-    </section>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#services">Products</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#fleet">Fleet Solutions</a></li>
+        <li><a href="#coverage">Coverage</a></li>
+        <li><a href="#testimonials">Clients</a></li>
+        <li><a href="#contact" class="nav-cta">Get a Demo</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </div>
+</header>
 
-    <!-- How It Works -->
-    <section id="how-it-works" class="how-it-works">
-        <div class="container">
-            <div class="section-title">
-                <h2>How Our Solutions Work</h2>
-                <p>Simple implementation with powerful results in just four steps</p>
-            </div>
-            
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Consultation</h3>
-                    <p>We analyze your specific needs and recommend the optimal solution for your business.</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Installation</h3>
-                    <p>Our certified technicians install the necessary hardware with minimal disruption to your operations.</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Configuration</h3>
-                    <p>We customize the software to your specific requirements and train your team.</p>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Ongoing Support</h3>
-                    <p>We provide continuous monitoring, maintenance, and 24/7 support to ensure optimal performance.</p>
-                </div>
-            </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=85&auto=format&fit=crop" alt="Fleet Management Africa">
+  </div>
+  <div class="hero-overlay-pattern"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span>East & Central Africa's Telematics Leader</span>
+      </div>
+      <h1>Know Where<br>Your Fleet <em>Is.</em><br>Always.</h1>
+      <p class="hero-sub">Real-time GPS tracking, intelligent fleet management, and advanced security systems — purpose-built for Uganda and the region. Cut costs, stop theft, and take complete control of your vehicles.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary"><i class="fas fa-play-circle"></i> Request a Free Demo</a>
+        <a href="#services" class="btn-ghost">Explore Solutions</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong>8+</strong>
+          <span>Countries Covered</span>
         </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section id="benefits" class="benefits">
-        <div class="container">
-            <div class="section-title">
-                <h2>Benefits of Our Solutions</h2>
-                <p>Discover how our telematics solutions can transform your business operations</p>
-            </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div>
-                        <h3>Reduce Operational Costs</h3>
-                        <p>Lower fuel consumption, reduce maintenance costs, and decrease insurance premiums.</p>
-                    </div>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div>
-                        <h3>Enhance Security</h3>
-                    </div>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <div>
-                        <h3>Improve Efficiency</h3>
-                        <p>Optimize routes, reduce idle time, and increase overall operational productivity.</p>
-                    </div>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-user-shield"></i>
-                    </div>
-                    <div>
-                        <h3>Increase Safety</h3>
-                        <p>Monitor driver behavior, reduce accidents, and ensure compliance with safety regulations.</p>
-                    </div>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <div>
-                        <h3>Simplify Compliance</h3>
-                        <p>Automate reporting and maintain accurate records for regulatory requirements.</p>
-                    </div>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-hand-holding-usd"></i>
-                    </div>
-                    <div>
-                        <h3>Maximize ROI</h3>
-                        <p>Our solutions typically pay for themselves within 6-12 months through cost savings.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-stat">
+          <strong>2017</strong>
+          <span>Established</span>
         </div>
-    </section>
-
-    <!-- Coverage Section -->
-    <section id="coverage" class="coverage">
-        <div class="container">
-            <div class="section-title">
-                <h2>Regional Coverage</h2>
-                <p>Serving businesses across East and Central Africa since 2017</p>
-            </div>
-            
-            <div class="countries">
-                <span class="country">Uganda</span>
-                <span class="country">Kenya</span>
-                <span class="country">Tanzania</span>
-                <span class="country">Rwanda</span>
-                <span class="country">Burundi</span>
-                <span class="country">South Sudan</span>
-                <span class="country">D.R. Congo</span>
-                <span class="country">Central African Republic</span>
-            </div>
+        <div class="hero-stat">
+          <strong>24/7</strong>
+          <span>Live Support</span>
         </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>What Our Clients Say</h2>
-                <p>Join hundreds of satisfied customers who have transformed their operations with HORBTEC</p>
-            </div>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial">
-                    <p>"Since implementing HORBTEC's fleet management solution, we've reduced our fuel costs by 22% and improved on-time deliveries by 17%. The ROI was evident within the first quarter."</p>
-                    <div class="client">— John Mukasa, Logistics Manager</div>
-                </div>
-                
-                <div class="testimonial">
-                    <p>"The car tracking system has given us complete peace of mind. We can monitor our vehicles in real-time and quickly respond to any issues. The fuel monitoring alone has saved us thousands."</p>
-                    <div class="client">— Sarah Nakato, Transport Director</div>
-                </div>
-                
-                <div class="testimonial">
-                    <p>"HORBTEC's fuel monitoring system has been a game-changer for our business. We've eliminated fuel theft and optimized consumption, resulting in 30% savings on our fuel expenses."</p>
-                    <div class="client">— Robert Ochieng, Operations Manager</div>
-                </div>
-            </div>
+        <div class="hero-stat">
+          <strong>30%</strong>
+          <span>Avg. Fuel Saved</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
 
-    <!-- CTA Section -->
-    <section id="contact" class="cta">
-        <div class="container">
-            <h2>Ready to Transform Your Business Operations?</h2>
-            <p>Request a personalized demo today and discover how HORBTEC can help your business save time, reduce costs, and improve safety.</p>
-            
-            <div class="contact-buttons">
-                <a href="https://wa.me/256756773494?text=Hello%20HORBTEC,%20I'm%20interested%20in%20your%20telematics%20solutions" class="contact-btn whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Now
-                </a>
-                <a href="tel:+256394011693" class="contact-btn call-btn">
-                    <i class="fas fa-phone"></i> Call Now
-                </a>
-                <a href="tel:+256705486999" class="contact-btn admin-btn">
-                    <i class="fas fa-headset"></i> Call Admin
-                </a>
-                <a href="mailto:info@horbtec.com" class="contact-btn email-btn">
-                    <i class="fas fa-envelope"></i> Email Us
-                </a>
-                <a href="mailto:hr@horbtec.com" class="contact-btn careers-btn">
-                    <i class="fas fa-briefcase"></i> Careers
-                </a>
-            </div>
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-item"><i class="fas fa-satellite-dish"></i> Real-Time GPS Tracking</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><i class="fas fa-gas-pump"></i> Fuel Theft Prevention</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><i class="fas fa-shield-alt"></i> Vehicle Security Alarms</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><i class="fas fa-chart-bar"></i> Fleet Analytics & Reporting</div>
+      <div class="trust-divider"></div>
+      <div class="trust-item"><i class="fas fa-headset"></i> 24/7 Local Support</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <img class="about-img-main" src="https://images.unsplash.com/photo-1580910051074-3eb694886505?w=900&q=80&auto=format&fit=crop&crop=faces" alt="African Fleet Manager">
+        <img class="about-img-accent" src="https://images.unsplash.com/photo-1593672715438-d88a70629abe?w=400&q=80&auto=format&fit=crop&crop=faces" alt="Telematics Dashboard">
+        <div class="about-badge">
+          <strong>7+</strong>
+          <span>Years of<br>Excellence</span>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>HORBTEC Solutions Ltd</h3>
-                    <p>Advanced telematics solutions for modern businesses. Optimizing operations across East and Central Africa since 2017.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="#products">Products</a>
-                    <a href="#how-it-works">How It Works</a>
-                    <a href="#benefits">Benefits</a>
-                    <a href="#coverage">Coverage</a>
-                    <a href="#testimonials">Testimonials</a>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-phone"></i> Main: +256 394 011 693</p>
-                    <p><i class="fas fa-headset"></i> Admin: +256 705 486 999</p>
-                    <p><i class="fab fa-whatsapp"></i> WhatsApp: +256 756 773 494</p>
-                    <p><i class="fas fa-envelope"></i> info@horbtec.com</p>
-                    <p><i class="fas fa-briefcase"></i> hr@horbtec.com</p>
-                </div>
+      </div>
+      <div class="about-text reveal">
+        <div class="tag">Who We Are</div>
+        <h3>Uganda's Most Trusted Telematics Company</h3>
+        <p>HORBTEC Solutions Ltd has been East Africa's partner for intelligent vehicle management since 2017. We help fleet owners, logistics companies, NGOs, and private car owners take back control — of their fuel, their vehicles, and their bottom line.</p>
+        <p>Whether you operate 2 vehicles or 2,000, our solutions are scaled to you. Our certified technicians install and configure everything, and our local support team is always available.</p>
+        <div class="about-pillars">
+          <div class="pillar">
+            <i class="fas fa-check-circle"></i>
+            <div>
+              <strong>Certified Local Technicians</strong>
+              <span>Professional installation with minimal disruption to your operations</span>
             </div>
-            
-            <div class="copyright">
-                <p>&copy; 2017-2023 HORBTEC Solutions Ltd. All rights reserved.</p>
+          </div>
+          <div class="pillar">
+            <i class="fas fa-check-circle"></i>
+            <div>
+              <strong>Dedicated Account Management</strong>
+              <span>A real person who knows your fleet and responds fast</span>
             </div>
+          </div>
+          <div class="pillar">
+            <i class="fas fa-check-circle"></i>
+            <div>
+              <strong>Proven ROI Within 6 Months</strong>
+              <span>Our clients consistently report savings exceeding their subscription cost</span>
+            </div>
+          </div>
         </div>
-    </footer>
+        <a href="#contact" class="btn-primary">Talk to Our Team <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Structured Data for SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "HORBTEC Solutions Ltd.",
-      "description": "Leading provider of telematics solutions across East and Central Africa including GPS tracking, fleet management, and security systems.",
-      "foundingDate": "2017",
-      "areaServed": ["Uganda", "Kenya", "Tanzania", "Rwanda", "Burundi", "South Sudan", "DR Congo", "Central African Republic"],
-      "serviceType": "Telematics solutions and fleet management systems"
-    }
-    </script>
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head centered reveal">
+      <div class="tag">Our Products</div>
+      <h2>Complete Telematics <em>Solutions</em></h2>
+      <p>From a single car to a 500-vehicle fleet — HORBTEC has the right tool for every need.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">🚗</div>
+        <h3>GPS Car Tracking</h3>
+        <p>Know where your vehicle is at every second. Real-time location, historical route playback, geofencing alerts, and instant theft notifications.</p>
+        <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🚛</div>
+        <h3>Fleet Management Solutions</h3>
+        <p>Comprehensive fleet optimization: maintenance scheduling, compliance reports, driver assignments, and operational analytics on one dashboard.</p>
+        <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">⛽</div>
+        <h3>Fuel Monitoring Systems</h3>
+        <p>Eliminate fuel theft instantly. Precision consumption tracking, refuelling alerts, and efficiency analytics that typically save 25–35% on fuel costs.</p>
+        <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🤖</div>
+        <h3>Driver Behaviour Analytics</h3>
+        <p>AI-powered driving pattern recognition with scoring, harsh-braking alerts, speed monitoring, and personalised coaching recommendations.</p>
+        <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">📹</div>
+        <h3>CCTV & Dashcam Systems</h3>
+        <p>HD vehicle and premises surveillance with night vision, dual-facing dashcams, impact detection, and cloud storage for incident evidence.</p>
+        <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">📦</div>
+        <h3>Cargo Tracking</h3>
+        <p>Smart shipment monitoring with temperature, humidity, and shock sensors. Protect your sensitive and high-value cargo end-to-end.</p>
+        <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">👨‍💼</div>
+        <h3>Field Staff Tracking</h3>
+        <p>GPS-enabled time tracking, job assignment tools, and productivity metrics for your mobile workforce across any terrain.</p>
+        <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">📈</div>
+        <h3>Predictive Maintenance</h3>
+        <p>Machine learning algorithms that flag maintenance needs before breakdowns happen — reducing downtime and protecting your assets.</p>
+        <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🌿</div>
+        <h3>Carbon Emission Tracking</h3>
+        <p>Sustainability reporting and environmental compliance documentation — increasingly required by donors, investors, and regulators.</p>
+        <a href="#contact" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="services-cta reveal">
+      <p style="color:var(--muted);margin-bottom:16px;">Also offering: Geo Mapping, Power Monitoring, Security Alarms, Route Planning & Fleet Admin Training</p>
+      <a href="#contact" class="btn-primary">Get Full Product Catalogue <i class="fas fa-download"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-head centered reveal">
+      <div class="tag" style="background:rgba(245,129,31,.15);color:var(--amber)">How It Works</div>
+      <h2>Up and Running in <em>4 Steps</em></h2>
+      <p style="color:rgba(255,255,255,.6)">From first call to full operational visibility — we handle everything.</p>
+    </div>
+    <div class="process-track">
+      <div class="process-step reveal">
+        <div class="step-circle">
+          <i class="fas fa-comments"></i>
+          <span class="step-num">1</span>
+        </div>
+        <h3>Free Consultation</h3>
+        <p>We assess your fleet, understand your challenges, and recommend the optimal solution — no obligation.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-circle">
+          <i class="fas fa-tools"></i>
+          <span class="step-num">2</span>
+        </div>
+        <h3>Expert Installation</h3>
+        <p>Certified technicians fit all hardware quickly and cleanly, with zero disruption to your daily operations.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-circle">
+          <i class="fas fa-sliders-h"></i>
+          <span class="step-num">3</span>
+        </div>
+        <h3>Custom Configuration</h3>
+        <p>We tailor the platform to your workflows, train your team, and set up your alerts and reports.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-circle">
+          <i class="fas fa-headset"></i>
+          <span class="step-num">4</span>
+        </div>
+        <h3>24/7 Ongoing Support</h3>
+        <p>A dedicated account manager plus round-the-clock technical support ensures peak performance always.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE — FLEET -->
+<section class="feature-section" id="fleet">
+  <div class="container">
+    <div class="feature-grid reveal">
+      <div class="feature-img">
+        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=900&q=80&auto=format&fit=crop" alt="African Fleet Manager at Work">
+        <div class="feature-img-badge">
+          <strong>22%</strong>
+          <span>Average Fuel Cost Reduction</span>
+        </div>
+      </div>
+      <div class="feature-text">
+        <div class="tag tag-blue">Fleet Owners</div>
+        <h2>Stop Losing Money to <em>Fuel Theft</em> & Inefficiency</h2>
+        <p>For transport companies, logistics operators, and large fleets across Uganda and East Africa, fuel theft and unauthorised vehicle use can drain hundreds of millions of shillings every year. HORBTEC closes those gaps immediately.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Real-time fuel level monitoring with instant siphoning alerts</li>
+          <li><i class="fas fa-check-circle"></i> Geofencing: receive SMS alerts when any vehicle leaves approved zones</li>
+          <li><i class="fas fa-check-circle"></i> After-hours movement alerts — know if your fleet moves at night</li>
+          <li><i class="fas fa-check-circle"></i> Detailed trip reports, idle time logs, and driver scoring</li>
+          <li><i class="fas fa-check-circle"></i> Automated compliance reports for management and donors</li>
+        </ul>
+        <a href="#contact" class="btn-primary">Request Fleet Demo <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE — PRIVATE CARS -->
+<section class="feature-section" style="padding-top:0; background:#f7f9fc;">
+  <div class="container">
+    <div class="feature-grid reverse reveal">
+      <div class="feature-img">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=900&q=80&auto=format&fit=crop&crop=faces" alt="Private Car Owner Uganda">
+        <div class="feature-img-badge">
+          <strong>Stolen Vehicle?</strong>
+          <span>Track & Recover in Real-Time</span>
+        </div>
+      </div>
+      <div class="feature-text">
+        <div class="tag tag-blue">Private Car Owners</div>
+        <h2>Total Peace of Mind for <em>Your Vehicle</em></h2>
+        <p>Whether you own one car or several, HORBTEC gives you a live window into your vehicle's location, status, and safety — straight from your smartphone. Protect your investment, monitor family drivers, and recover fast if your car is stolen.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Live tracking on mobile app — see your car on the map any time</li>
+          <li><i class="fas fa-check-circle"></i> Instant theft and tamper alerts sent directly to your phone</li>
+          <li><i class="fas fa-check-circle"></i> Dashcam with cloud video backup — evidence when you need it</li>
+          <li><i class="fas fa-check-circle"></i> Monitor family and staff drivers with speed and behaviour reports</li>
+          <li><i class="fas fa-check-circle"></i> Remote immobilisation option — stop your vehicle from anywhere</li>
+        </ul>
+        <a href="#contact" class="btn-primary">Protect My Car <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="coverage" id="coverage">
+  <div class="container">
+    <div class="coverage-inner">
+      <div class="reveal">
+        <div class="tag tag-blue">Where We Operate</div>
+        <div class="section-head" style="margin-bottom:32px;">
+          <h2>Serving Businesses Across <em>8 Nations</em></h2>
+          <p>From Kampala to Kinshasa, from Nairobi to Juba — HORBTEC delivers the same quality of service wherever your fleet operates.</p>
+        </div>
+        <p class="countries-label">Our Active Markets</p>
+        <div class="countries-grid">
+          <div class="country-pill"><i class="fas fa-map-marker-alt"></i> Uganda</div>
+          <div class="country-pill"><i class="fas fa-map-marker-alt"></i> Kenya</div>
+          <div class="country-pill"><i class="fas fa-map-marker-alt"></i> Tanzania</div>
+          <div class="country-pill"><i class="fas fa-map-marker-alt"></i> Rwanda</div>
+          <div class="country-pill"><i class="fas fa-map-marker-alt"></i> Burundi</div>
+          <div class="country-pill"><i class="fas fa-map-marker-alt"></i> South Sudan</div>
+          <div class="country-pill"><i class="fas fa-map-marker-alt"></i> D.R. Congo</div>
+          <div class="country-pill"><i class="fas fa-map-marker-alt"></i> Central African Republic</div>
+        </div>
+        <p style="margin-top:24px;color:var(--muted);font-size:0.9rem;">Cross-border fleet tracking fully supported. One platform, every country.</p>
+      </div>
+      <div class="coverage-img reveal">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80&auto=format&fit=crop" alt="African Business Professionals">
+        <div class="coverage-overlay">
+          <p>Trusted by NGOs, logistics companies, government fleets, and private businesses across <em>East & Central Africa</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head centered reveal">
+      <div class="tag">Client Stories</div>
+      <h2>Results That <em>Speak</em> for Themselves</h2>
+      <p>Join hundreds of fleet owners and businesses across the region who have transformed their operations with HORBTEC.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <span class="testi-quote">"</span>
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>Since installing HORBTEC's fleet management and fuel monitoring system, we've cut fuel costs by 22% and improved on-time deliveries by 17%. The ROI was clear within the first quarter. I wish we had done this years ago.</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&q=80&auto=format&fit=crop&crop=faces" alt="John Mukasa">
+          <div>
+            <strong class="testi-name">John Riverson</strong>
+            <span class="testi-role">Logistics, D.R.Congo Mining Sector.</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <span class="testi-quote">"</span>
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>The car tracking system has given us complete peace of mind. We operate across three countries and can monitor every vehicle in real-time from one screen. The fuel monitoring alone has saved us millions of shillings each month.</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=120&q=80&auto=format&fit=crop&crop=faces" alt="Sarah Nakato">
+          <div>
+            <strong class="testi-name">Sarah Nakato</strong>
+            <span class="testi-role">Transport Cordinator, Uganda NGO Sector</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <span class="testi-quote">"</span>
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>HORBTEC's fuel monitoring system was a game-changer. We eliminated fuel theft completely and optimised consumption — resulting in 30% savings on our monthly fuel budget. The installation was quick and the support team is excellent.</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&q=80&auto=format&fit=crop&crop=faces" alt="Robert Ochieng">
+          <div>
+            <strong class="testi-name">Gaston Zephyr</strong>
+            <span class="testi-role">Operations Manager, Kenya Logistics Sector</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="cta-band" id="contact">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-text reveal">
+        <div class="tag" style="background:rgba(245,129,31,.2);color:var(--amber)">Get Started Today</div>
+        <h2>Ready to Take Control of <em>Your Fleet?</em></h2>
+        <p>Speak to our team today for a free consultation and demo. No pressure, no complicated contracts — just real solutions for real businesses across Uganda and East Africa.</p>
+        <div style="margin-top:28px;padding:20px 24px;background:rgba(255,255,255,.06);border-radius:4px;border-left:3px solid var(--orange);">
+          <p style="color:rgba(255,255,255,.9);font-size:0.88rem;line-height:1.6;"><i class="fas fa-info-circle" style="color:var(--orange);margin-right:8px;"></i>Our team typically responds within <strong style="color:#fff;">30 minutes</strong> during business hours. WhatsApp is fastest for immediate assistance.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="contact-grid">
+          <a href="https://wa.me/256756773494?text=Hello%20HORBTEC,%20I'm%20interested%20in%20your%20telematics%20solutions" class="contact-tile">
+            <div class="contact-tile-icon ct-wa"><i class="fab fa-whatsapp"></i></div>
+            <div class="contact-tile-text">
+              <strong>WhatsApp Us</strong>
+              <span>+256 756 773 494 — Fastest Response</span>
+            </div>
+          </a>
+          <a href="tel:+256394011693" class="contact-tile">
+            <div class="contact-tile-icon ct-call"><i class="fas fa-phone"></i></div>
+            <div class="contact-tile-text">
+              <strong>Call Main Line</strong>
+              <span>+256 394 011 693</span>
+            </div>
+          </a>
+          <a href="tel:+256705486999" class="contact-tile">
+            <div class="contact-tile-icon ct-admin"><i class="fas fa-headset"></i></div>
+            <div class="contact-tile-text">
+              <strong>Call Admin</strong>
+              <span>+256 705 486 999</span>
+            </div>
+          </a>
+          <a href="mailto:info@horbtec.com" class="contact-tile">
+            <div class="contact-tile-icon ct-email"><i class="fas fa-envelope"></i></div>
+            <div class="contact-tile-text">
+              <strong>Email Us</strong>
+              <span>info@horbtec.com</span>
+            </div>
+          </a>
+          <a href="mailto:hr@horbtec.com" class="contact-tile contact-full">
+            <div class="contact-tile-icon ct-careers"><i class="fas fa-briefcase"></i></div>
+            <div class="contact-tile-text">
+              <strong>Careers at HORBTEC</strong>
+              <span>We're growing — send your CV to hr@horbtec.com</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo-wrap" href="#">
+          <div class="logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+          <div class="logo-text"><strong>HORBTEC</strong><span>Solutions Ltd</span></div>
+        </a>
+        <p>East & Central Africa's trusted telematics partner since 2017. Empowering businesses to operate smarter, safer, and more profitably.</p>
+        <div class="social-row">
+          <a href="#" class="soc-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/256756773494" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <a href="#services">GPS Car Tracking</a>
+        <a href="#services">Fleet Management</a>
+        <a href="#services">Fuel Monitoring</a>
+        <a href="#services">Driver Analytics</a>
+        <a href="#services">Cargo Tracking</a>
+        <a href="#services">CCTV & Dashcams</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#about">About HORBTEC</a>
+        <a href="#process">How It Works</a>
+        <a href="#coverage">Regional Coverage</a>
+        <a href="#testimonials">Client Stories</a>
+        <a href="mailto:hr@horbtec.com">Careers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <i class="fab fa-whatsapp"></i>
+          <a href="https://wa.me/256756773494">+256 756 773 494</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <a href="tel:+256394011693">+256 394 011 693</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-headset"></i>
+          <a href="tel:+256705486999">+256 705 486 999</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:info@horbtec.com">info@horbtec.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2017–2025 HORBTEC Solutions Ltd. All rights reserved. Kampala, Uganda.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Header scroll effect
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Mobile nav
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('nav-links').classList.toggle('open');
+});
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(r => observer.observe(r));
+
+// Stagger children
+document.querySelectorAll('.services-grid, .testi-grid, .process-track').forEach(grid => {
+  [...grid.children].forEach((child, i) => {
+    child.style.transitionDelay = `${i * 0.08}s`;
+  });
+});
+</script>
 </body>
 </html>
