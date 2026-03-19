@@ -931,94 +931,131 @@ document.querySelectorAll('.services-grid, .testi-grid, .process-track').forEach
 
 <script>
 // ═══════════════════════════════════════════════════════
-//  EMAILJS QUOTE FORM
-//  Uses EmailJS free tier (200 emails/month).
-//  Steps to activate after downloading this file:
-//  1. Go to https://www.emailjs.com and sign up free.
-//  2. Add an Email Service (Gmail — use horbtecsolutionsltd@gmail.com).
-//  3. Create an Email Template. In the template body use:
-//       From: {{name}} | {{company}}
-//       Phone: {{phone}} | Email: {{reply_to}}
-//       Fleet Size: {{fleet_size}}
-//       Service: {{service}}
-//       Problem: {{problem}}
-//     Set "Reply To" field to: {{reply_to}}
-//     Set "To Email" to: horbtecsolutionsltd@gmail.com
-//  4. Replace the three placeholder strings below with your
-//     Public Key, Service ID, and Template ID from EmailJS dashboard.
+//  EMAILJS QUOTE FORM — hardened v2
+//  Credentials live. Template variables must match
+//  exactly what is in your EmailJS template editor.
+//
+//  Required template variables (copy these into your
+//  EmailJS template body at emailjs.com):
+//    {{from_name}}  — submitter full name
+//    {{company}}    — company name
+//    {{reply_to}}   — submitter email
+//    {{phone}}      — phone number
+//    {{fleet_size}} — fleet / project size
+//    {{service}}    — service preference
+//    {{message}}    — problem description
+//
+//  Template settings:
+//    To Email  →  horbtecsolutionsltd@gmail.com
+//    Reply To  →  {{reply_to}}
+//    Subject   →  New Quote Request from {{from_name}} — {{company}}
 // ═══════════════════════════════════════════════════════
 
-const EMAILJS_PUBLIC_KEY  = '1zQIsqNRLQQBYTGp_';   // e.g. 'abc123XYZ'
-const EMAILJS_SERVICE_ID  = 'service_6mv0swf';   // e.g. 'service_xxxxxx'
-const EMAILJS_TEMPLATE_ID = 'template_3wnvaez';  // e.g. 'template_xxxxxx'
-
 (function() {
-  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  try {
+    emailjs.init({ publicKey: '1zQIsqNRLQQBYTGp_' });
+    console.log('[HORBTEC] EmailJS initialised OK');
+  } catch(initErr) {
+    console.error('[HORBTEC] EmailJS init failed:', initErr);
+  }
 })();
 
 document.getElementById('quoteForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
-  const btn    = document.getElementById('qfSubmitBtn');
-  const status = document.getElementById('qfStatus');
+  var btn    = document.getElementById('qfSubmitBtn');
+  var status = document.getElementById('qfStatus');
 
-  // Basic client-side validation
-  const name    = document.getElementById('qf_name').value.trim();
-  const company = document.getElementById('qf_company').value.trim();
-  const email   = document.getElementById('qf_email').value.trim();
-  const phone   = document.getElementById('qf_phone').value.trim();
-  const problem = document.getElementById('qf_problem').value.trim();
+  // Collect values
+  var name       = document.getElementById('qf_name').value.trim();
+  var company    = document.getElementById('qf_company').value.trim();
+  var email      = document.getElementById('qf_email').value.trim();
+  var phone      = document.getElementById('qf_phone').value.trim();
+  var fleet_size = document.getElementById('qf_fleet').value   || 'Not specified';
+  var service    = document.getElementById('qf_service').value || 'Not specified';
+  var problem    = document.getElementById('qf_problem').value.trim();
 
+  // Validation
   if (!name || !company || !email || !phone || !problem) {
     status.className = 'qf-status error';
-    status.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill in all required fields.';
+    status.style.display = 'flex';
+    status.innerHTML = '&#9888; Please fill in all required fields.';
     return;
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     status.className = 'qf-status error';
-    status.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter a valid email address.';
+    status.style.display = 'flex';
+    status.innerHTML = '&#9888; Please enter a valid email address.';
     return;
   }
 
-  // Disable button while sending
+  // Loading state
   btn.disabled = true;
-  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
-  status.className = 'qf-status';
+  btn.textContent = 'Sending...';
+  status.style.display = 'none';
   status.innerHTML = '';
 
-  const templateParams = {
-    name:       name,
+  var templateParams = {
+    from_name:  name,
     company:    company,
     reply_to:   email,
     phone:      phone,
-    fleet_size: document.getElementById('qf_fleet').value || 'Not specified',
-    service:    document.getElementById('qf_service').value || 'Not specified',
-    problem:    problem
+    fleet_size: fleet_size,
+    service:    service,
+    message:    problem
   };
 
-  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-    .then(function() {
-      btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+  console.log('[HORBTEC] Sending to EmailJS:', templateParams);
+
+  emailjs.send('service_6mv0swf', 'template_3wnvaez', templateParams)
+    .then(function(response) {
+      console.log('[HORBTEC] EmailJS SUCCESS:', response.status, response.text);
+      btn.textContent = 'Sent!';
       status.className = 'qf-status success';
-      status.innerHTML = '<i class="fas fa-check-circle"></i> Quote request received — we\'ll be in touch within 30 minutes.';
+      status.style.display = 'flex';
+      status.innerHTML = '&#10003; Quote request received — we\'ll be in touch within 30 minutes!';
       document.getElementById('quoteForm').reset();
-      setTimeout(() => {
+      setTimeout(function() {
         btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Get Quote';
-      }, 4000);
+        btn.textContent = 'Get Quote';
+      }, 5000);
     })
     .catch(function(err) {
-      console.error('EmailJS error:', err);
+      console.error('[HORBTEC] EmailJS FAILED:', err);
+      var errCode = (err && err.text) ? err.text : (err && err.status ? 'HTTP ' + err.status : 'unknown');
+      console.error('[HORBTEC] Error code:', errCode);
+
       btn.disabled = false;
-      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Get Quote';
+      btn.textContent = 'Get Quote';
+
       status.className = 'qf-status error';
-      // Fallback: open default mail client if EmailJS not yet configured
-      if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
-        const body = encodeURIComponent(
-          'Name: ' + name + '\n' +
-          'Company: ' + company + '\n' +
-          'Email: ' + email + '\n' +
-          'Phone: ' + phone + '\n' +
-          'Fleet Size: ' + (document.getElementById('qf_fleet').value || 'Not specified') + '\n' +
-          'Service: ' + (document.getElementById('qf_service').value || 'Not specified') + '\n\n' +
-          'Pr
+      status.style.display = 'flex';
+      status.innerHTML = '&#9888; Could not send automatically (error: ' + errCode + '). Opening your email client as backup...';
+
+      // ── Mailto fallback — always fires so no lead is lost ──
+      setTimeout(function() {
+        var subject = 'New Quote Request from ' + name + ' — ' + company;
+        var body =
+          'HORBTEC QUOTE REQUEST\r\n' +
+          '=====================\r\n\r\n' +
+          'Name:        ' + name        + '\r\n' +
+          'Company:     ' + company     + '\r\n' +
+          'Email:       ' + email       + '\r\n' +
+          'Phone:       ' + phone       + '\r\n' +
+          'Fleet Size:  ' + fleet_size  + '\r\n' +
+          'Service:     ' + service     + '\r\n\r\n' +
+          'Problem to Solve:\r\n' + problem;
+
+        window.location.href =
+          'mailto:horbtecsolutionsltd@gmail.com' +
+          '?subject=' + encodeURIComponent(subject) +
+          '&body='    + encodeURIComponent(body);
+
+        status.innerHTML = '&#9993; Your email client opened with all details pre-filled. Please click Send to complete your request, or WhatsApp us on +256 756 773 494.';
+      }, 2000);
+    });
+});
+</script>
+
+</body>
+</html>
