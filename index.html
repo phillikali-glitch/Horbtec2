@@ -505,7 +505,7 @@ footer { background: var(--ink); padding: 72px 0 32px; }
       <h1>Know Where<br>Your Fleet <em>Is.</em><br>Always.</h1>
       <p class="hero-sub">Real-time GPS tracking, intelligent fleet management, and advanced security systems — purpose-built for Uganda and the region. Cut costs, stop theft, and take complete control of your vehicles.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn-primary"><i class="fas fa-play-circle"></i> Request Free Demo</a>
+        <a href="#contact" class="btn-primary"><i class="fas fa-play-circle"></i> Request a Free Demo</a>
         <a href="#services" class="btn-ghost">Explore Solutions</a>
       </div>
       <div class="hero-stats">
@@ -752,13 +752,13 @@ footer { background: var(--ink); padding: 72px 0 32px; }
             <div class="contact-tile-icon ct-admin"><i class="fas fa-headset"></i></div>
             <div class="contact-tile-text"><strong>Call Admin</strong><span>+256 705 486 999</span></div>
           </a>
-          <a href="mailto:info@horbtec.com" class="contact-tile">
+          <a href="/cdn-cgi/l/email-protection#442d2a222b042c2b36263021276a272b29" class="contact-tile">
             <div class="contact-tile-icon ct-email"><i class="fas fa-envelope"></i></div>
-            <div class="contact-tile-text"><strong>Email Us</strong><span>info@horbtec.com</span></div>
+            <div class="contact-tile-text"><strong>Email Us</strong><span><span class="__cf_email__" data-cfemail="345d5a525b745c5b46564051571a575b59">[email&#160;protected]</span></span></div>
           </a>
-          <a href="mailto:hr@horbtec.com" class="contact-tile contact-full">
+          <a href="/cdn-cgi/l/email-protection#7b13093b131409190f1e1855181416" class="contact-tile contact-full">
             <div class="contact-tile-icon ct-careers"><i class="fas fa-briefcase"></i></div>
-            <div class="contact-tile-text"><strong>Careers at HORBTEC</strong><span>We're growing — send your CV to hr@horbtec.com</span></div>
+            <div class="contact-tile-text"><strong>Careers at HORBTEC</strong><span>We're growing — send your CV to <span class="__cf_email__" data-cfemail="a5cdd7e5cdcad7c7d1c0c68bc6cac8">[email&#160;protected]</span></span></div>
           </a>
         </div>
       </div>
@@ -876,14 +876,14 @@ footer { background: var(--ink); padding: 72px 0 32px; }
         <a href="#process">How It Works</a>
         <a href="#coverage">Regional Coverage</a>
         <a href="#testimonials">Client Stories</a>
-        <a href="mailto:hr@horbtec.com">Careers Uganda</a>
+        <a href="/cdn-cgi/l/email-protection#7c140e3c14130e1e08191f521f1311">Careers Uganda</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/256756773494">+256 756 773 494</a></div>
         <div class="footer-contact-item"><i class="fas fa-phone"></i><a href="tel:+256394011693">+256 394 011 693</a></div>
         <div class="footer-contact-item"><i class="fas fa-headset"></i><a href="tel:+256705486999">+256 705 486 999</a></div>
-        <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:info@horbtec.com">info@horbtec.com</a></div>
+        <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="/cdn-cgi/l/email-protection#bcd5d2dad3fcd4d3cedec8d9df92dfd3d1"><span class="__cf_email__" data-cfemail="b2dbdcd4ddf2daddc0d0c6d7d19cd1dddf">[email&#160;protected]</span></a></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -896,7 +896,7 @@ footer { background: var(--ink); padding: 72px 0 32px; }
 <!-- ═══════════════════════════════════
      SCRIPTS
 ═══════════════════════════════════ -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Header scroll
 const header = document.getElementById('site-header');
 window.addEventListener('scroll', () => {
@@ -948,9 +948,9 @@ document.querySelectorAll('.services-grid, .testi-grid, .process-track').forEach
 //     Public Key, Service ID, and Template ID from EmailJS dashboard.
 // ═══════════════════════════════════════════════════════
 
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'abc123XYZ'
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_xxxxxx'
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_xxxxxx'
+const EMAILJS_PUBLIC_KEY  = '1zQIsqNRLQQBYTGp_';   // e.g. 'abc123XYZ'
+const EMAILJS_SERVICE_ID  = 'service_6mv0swf';   // e.g. 'service_xxxxxx'
+const EMAILJS_TEMPLATE_ID = 'template_3wnvaez';  // e.g. 'template_xxxxxx'
 
 (function() {
   emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
@@ -1021,17 +1021,4 @@ document.getElementById('quoteForm').addEventListener('submit', function(e) {
           'Phone: ' + phone + '\n' +
           'Fleet Size: ' + (document.getElementById('qf_fleet').value || 'Not specified') + '\n' +
           'Service: ' + (document.getElementById('qf_service').value || 'Not specified') + '\n\n' +
-          'Problem to Solve:\n' + problem
-        );
-        window.location.href = 'mailto:horbtecsolutionsltd@gmail.com?subject=Quote%20Request%20from%20' + encodeURIComponent(name) + '&body=' + body;
-        status.className = 'qf-status success';
-        status.innerHTML = '<i class="fas fa-envelope"></i> Opening your email client…';
-      } else {
-        status.innerHTML = '<i class="fas fa-exclamation-circle"></i> Couldn\'t send. Please WhatsApp us directly on +256 756 773 494.';
-      }
-    });
-});
-</script>
-
-</body>
-</html>
+          'Pr
